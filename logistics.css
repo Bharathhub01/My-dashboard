@@ -1,0 +1,210 @@
+/* Container and Layout */
+.logistics-dashboard-container {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+}
+
+.dashboard-nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-nav button {
+  padding: 0.6rem 1.2rem;
+  background-color: #e0e7ff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dashboard-nav button.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.dashboard-nav button:hover:not(.active) {
+  background-color: #c7d2fe;
+}
+
+.dashboard-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Buttons */
+.primary-button,
+.secondary-button,
+.add-button,
+.small-button {
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.primary-button {
+  background-color: #2563eb;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #1d4ed8;
+}
+
+.secondary-button {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.secondary-button:hover {
+  background-color: #d1d5db;
+}
+
+.add-button {
+  background-color: #10b981;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.add-button:hover {
+  background-color: #059669;
+}
+
+.small-button {
+  background-color: #3b82f6;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.small-button:hover {
+  background-color: #2563eb;
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status-available {
+  background-color: #10b981;
+}
+
+.status-en-route {
+  background-color: #f59e0b;
+}
+
+.status-dispatched {
+  background-color: #3b82f6;
+}
+
+.status-delivered {
+  background-color: #22c55e;
+}
+
+.status-pending {
+  background-color: #f87171;
+}
+
+/* Modal Form Overlay */
+.form-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.form-modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styles */
+.logistics-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.logistics-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.logistics-form input,
+.logistics-form select,
+.logistics-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* Misc */
+.outstanding-amount {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}

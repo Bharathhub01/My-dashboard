@@ -1,0 +1,362 @@
+/* CustomerService.css */
+
+/* Remove fixed height from html/body if present, let content dictate height */
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure html and body take full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scrollbar on the main page */
+}
+
+.customer-service-module {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure it takes at least full viewport height */
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.navbar {
+    /* REMOVED: background-color: #1a73e8; */ /* Remove header color */
+    background-color: transparent; /* Make it transparent or desired minimal color */
+    padding: 15px 20px;
+    box-shadow: none; /* Remove shadow if not needed with transparent background */
+    flex-shrink: 0;
+    border-bottom: 1px solid #e0e0e0; /* Optional: Add a subtle bottom border */
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px; /* Reduce gap slightly for button spacing */
+    justify-content: center; /* Center the nav buttons */
+}
+
+.navbar-nav li {
+    /* Changed from color to use button styles directly */
+    font-size: 1.05em; /* Slightly adjust size */
+    cursor: pointer;
+    padding: 8px 18px; /* Padding for button appearance */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    border-radius: 5px; /* Rounded corners for buttons */
+    font-weight: bold; /* Make nav buttons bold */
+    background-color: #f0f0f0; /* Default background color for buttons */
+    color: #333; /* Default text color for buttons */
+    text-align: center;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.navbar-nav li.active {
+    background-color: #1a73e8; /* Active button background color */
+    color: white; /* Active button text color */
+    font-weight: bold; /* Keep bold */
+}
+
+/* Remove ::after for active state if using background color */
+.navbar-nav li.active::after {
+    display: none;
+}
+
+.navbar-nav li:hover:not(.active) {
+    background-color: #e0e0e0; /* Hover background color */
+    color: #1a73e8; /* Hover text color */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+.content-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tickets-view, .customers-view, .ticket-detail, .customer-detail {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    width: 100%; /* Keep full width */
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.tickets-view h2, .customers-view h2, .customer-detail h2, .ticket-detail h2{
+    color: #2C7B65 ;
+}
+
+h2 {
+    color: #1a73e8;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e8f0fe;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #3f51b5; /* Deeper blue for subheadings */
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.tickets-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+.create-ticket-button, .back-button, .save-button, .submit-button, .cancel-button, .add-note-section button {
+    background-color: #4CAF50; /* Green for actions */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.create-ticket-button:hover, .add-note-section button:hover {
+    background-color: #45a049;
+}
+
+.back-button {
+    background-color: #607d8b; /* Grey for back button */
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background-color: #546e7a;
+}
+
+.save-button {
+    background-color: #007bff; /* Blue for save */
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
+
+.submit-button {
+    background-color: #28a745; /* Green for submit */
+}
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.cancel-button {
+    background-color: #dc3545; /* Red for cancel */
+    margin-left: 10px;
+}
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+
+.ticket-list, .customer-list {
+    display: grid;
+    gap: 15px;
+    /* Maintain wider cards with appropriate column setup */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjusted minmax for wider cards */
+}
+
+.ticket-list-item, .customer-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket-list-item:hover, .customer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-list-item h3, .customer-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #1a73e8;
+}
+
+.ticket-list-item p, .customer-card p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.ticket-meta {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+}
+
+/* Status and Priority styling */
+.status-open { color: #dc3545; font-weight: bold; } /* Red */
+.status-in-progress { color: #ffc107; font-weight: bold; } /* Yellow */
+.status-resolved { color: #28a745; font-weight: bold; } /* Green */
+.status-closed { color: #6c757d; font-weight: bold; } /* Grey */
+.status-on-hold { color: #fd7e14; font-weight: bold; } /* Orange */
+
+.priority-high { color: #dc3545; font-weight: bold; }
+.priority-medium { color: #ffc107; font-weight: bold; }
+.priority-low { color: #28a745; font-weight: bold; }
+
+/* Ticket Detail / Customer Detail */
+.ticket-detail-header, .customer-profile-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e8f0fe;
+    border-radius: 8px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: calc(100% - 22px); /* Adjust for padding and border */
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.ticket-description, .customer-info-section {
+    background-color: #fefefe;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.communication-log {
+    background-color: #fefefe;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.communication-log ul {
+    list-style: none;
+    padding: 0;
+}
+
+.communication-log li {
+    background-color: #f0f4f7;
+    border-left: 5px solid #1a73e8;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.log-item.log-email { border-color: #ffc107; } /* Yellow for email */
+.log-item.log-call { border-color: #4CAF50; } /* Green for call */
+.log-item.log-note { border-color: #607d8b; } /* Grey for note */
+
+
+.add-note-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.add-note-section textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 60px;
+    resize: vertical;
+}
+
+.add-note-section button {
+    align-self: flex-end; /* Align button to the right */
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Modal specific styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 550px; /* This max-width is good for the modal itself */
+    box-sizing: border-box;
+    position: relative;
+    animation: fadeInScale 0.3s ease-out forwards;
+    max-height: 90vh; /* Limit modal height to prevent it from going off-screen */
+    overflow-y: auto; /* Add scrollbar to modal if its content overflows */
+}
+
+/* Animation for modal */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

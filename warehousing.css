@@ -1,0 +1,689 @@
+/* General Styling for Logistics Section */
+.logistics-section-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.warehousing-tab h2 {
+    color: #343a40;
+    background-color: #E0F2F7;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+/* Action Bar (Add Button & Search) */
+.warehousing-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px; /* Spacing between items */
+}
+
+.warehousing-actions-bar .add-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.warehousing-actions-bar .add-button:hover {
+    background-color: #0056b3;
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    padding: 10px 15px 10px 40px; /* Left padding for icon */
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 250px; /* Adjust as needed */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.search-bar .fa-search {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+/* Warehouse Cards Container */
+.warehouse-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsive grid */
+    gap: 25px;
+    padding-top: 10px;
+}
+
+.warehouse-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden; /* For status tag positioning */
+}
+
+.warehouse-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.warehouse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Updated: Color for Card Heading */
+.warehouse-card h3.warehouse-name-colored {
+    margin: 0;
+    font-size: 1.4rem;
+    flex-grow: 1;
+    color: #0056b3; /* Darker blue for heading */
+}
+
+/* Updated: Color and style for Warehouse ID */
+.warehouse-card .warehouse-id.warehouse-id-colored {
+    font-size: 0.9em;
+    color: #ffffff; /* White text */
+    background-color: #6c757d; /* Dark grey background */
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.warehouse-card p {
+    margin: 8px 0;
+    color: #495057;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.warehouse-card p strong {
+    color: #343a40;
+    margin-right: 5px;
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+.warehouse-card p .value {
+    flex-grow: 1; /* Allow value to take up remaining space */
+}
+
+.capacity-bar-container {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    height: 12px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.capacity-bar {
+    height: 100%;
+    background-color: #28a745; /* Green for low occupancy */
+    border-radius: 5px;
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.capacity-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+    text-align: right;
+    display: block;
+    margin-top: 5px;
+}
+
+.total-stock-summary {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.warehouse-card-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* Existing secondary button style, will be overridden by .view-details-button-colored */
+.warehouse-card-actions .secondary-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.warehouse-card-actions .secondary-button:hover {
+    background-color: #5a6268;
+}
+
+/* Updated: Color for View Details Button */
+.warehouse-card-actions .view-details-button-colored {
+    background-color: #6f42c1; /* Purple */
+    color: white;
+    font-weight: bold;
+    padding: 10px 18px; /* Slightly larger padding */
+}
+
+.warehouse-card-actions .view-details-button-colored:hover {
+    background-color: #5d359f; /* Darker purple on hover */
+}
+
+
+/* Status Tag Styling on Cards */
+.low-stock-alert-tag {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto; /* Push to right */
+}
+
+/* Card Border/Shadow based on Status */
+.warehouse-card.status-operational {
+    border-left: 5px solid #28a745; /* Green border */
+}
+
+.warehouse-card.status-high-occupancy {
+    border-left: 5px solid #ffc107; /* Yellow border */
+}
+
+.warehouse-card.status-low-stock {
+    border-left: 5px solid #dc3545; /* Red border */
+}
+
+/* No Warehouses Message */
+.no-warehouses-message {
+    grid-column: 1 / -1; /* Span across all columns */
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    color: #6c757d;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* --- Form Modal Styles (Add Warehouse, Edit Stock, Add Product) --- */
+.form-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.form-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh; /* Limit height for scrollability */
+    overflow-y: auto; /* Enable scrolling for long forms */
+    position: relative;
+}
+
+.form-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #343a40;
+    font-size: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 15px;
+}
+
+.logistics-form .form-group {
+    margin-bottom: 20px;
+}
+
+.logistics-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+.logistics-form input[type="text"],
+.logistics-form input[type="number"],
+.logistics-form select {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.logistics-form input[type="text"]:focus,
+.logistics-form input[type="number"]:focus,
+.logistics-form select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.logistics-form .checkbox-group {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+.logistics-form .checkbox-group label {
+    font-weight: normal; /* Override bold for individual checkboxes */
+    display: inline-flex; /* Align checkbox and label */
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.logistics-form .checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto; /* Reset width for checkbox */
+    transform: scale(1.2); /* Make checkboxes slightly larger */
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.form-actions .primary-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.form-actions .primary-button:hover {
+    background-color: #218838;
+}
+
+.form-actions .secondary-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.form-actions .secondary-button:hover {
+    background-color: #5a6268;
+}
+
+/* Stock Adjustment Input Group in Edit Modal */
+.stock-adjustment-input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stock-adjustment-input-group input {
+    flex-grow: 1; /* Allow input to fill available space */
+    text-align: center;
+    -moz-appearance: textfield; /* Hide Firefox number input arrows */
+}
+
+/* Hide Webkit number input arrows */
+.stock-adjustment-input-group input::-webkit-outer-spin-button,
+.stock-adjustment-input-group input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.stock-adjustment-input-group button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 40px; /* Fixed width for buttons */
+    height: 40px; /* Fixed height to match input */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.stock-adjustment-input-group button:hover {
+    background-color: #0056b3;
+}
+
+/* Warehouse Detail Card */
+.warehouse-detail-card-wrapper {
+    padding: 20px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+
+.back-button:hover {
+    color: #0056b3;
+}
+
+.warehouse-detail-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.warehouse-detail-card.status-operational { border-left: 6px solid #28a745; }
+.warehouse-detail-card.status-high-occupancy { border-left: 6px solid #ffc107; }
+.warehouse-detail-card.status-low-stock { border-left: 6px solid #dc3545; }
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.detail-header h3 {
+    margin: 0;
+    color: #343a40;
+    font-size: 1.8rem;
+}
+
+.detail-status-tag {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+.detail-status-tag.status-operational { background-color: #28a745; }
+.detail-status-tag.status-high-occupancy { background-color: #ffc107; }
+.detail-status-tag.status-low-stock { background-color: #dc3545; }
+
+
+.detail-row {
+    display: flex;
+    margin-bottom: 12px;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.detail-row .label {
+    font-weight: bold;
+    color: #495057;
+    width: 120px; /* Fixed width for labels for alignment */
+    flex-shrink: 0;
+}
+
+.detail-row .value {
+    color: #343a40;
+    flex-grow: 1;
+}
+
+.detail-capacity-bar-container {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    height: 15px;
+    flex-grow: 1;
+    margin-left: 15px; /* Space from value */
+    overflow: hidden;
+}
+
+.detail-capacity-bar {
+    height: 100%;
+    background-color: #28a745;
+    border-radius: 5px;
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.warehouse-detail-card h4 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #343a40;
+    font-size: 1.4rem;
+    border-bottom: 1px dashed #e9ecef;
+    padding-bottom: 10px;
+}
+
+/* Inventory Table */
+.inventory-table {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.inventory-header-row, .inventory-data-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr 1.5fr; /* Product, Stock, Min Stock, Unit, Actions */
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.inventory-header-row {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #343a40;
+    border-bottom: 2px solid #ced4da;
+}
+
+.inventory-data-row {
+    background-color: white;
+    color: #495057;
+}
+
+.inventory-data-row:last-child {
+    border-bottom: none;
+}
+
+.inventory-data-row.low-stock-row {
+    background-color: #fff3cd; /* Light yellow background for low stock */
+    color: #856404; /* Darker text for contrast */
+}
+
+/* Inventory Table - Action Column */
+.inventory-col.action-col {
+    display: flex;
+    gap: 8px; /* Space between buttons */
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+/* Product Action Buttons (Edit/Delete within table) */
+.edit-product-button,
+.delete-product-button {
+    background-color: #007bff; /* Blue for edit */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.edit-product-button {
+    background-color: #17a2b8; /* Info blue/teal */
+}
+.edit-product-button:hover {
+    background-color: #138496;
+}
+
+.delete-product-button {
+    background-color: #dc3545; /* Red for delete */
+}
+.delete-product-button:hover {
+    background-color: #c82333;
+}
+
+
+.no-inventory {
+    text-align: center;
+    padding: 30px 15px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.detail-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.detail-actions .add-product-detail-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.detail-actions .add-product-detail-button:hover {
+    background-color: #0056b3;
+}
+
+.detail-actions .delete-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.detail-actions .delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .warehousing-actions-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-bar input {
+        width: 100%;
+    }
+    .warehouse-cards-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    .inventory-header-row, .inventory-data-row {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; /* Adjust columns for smaller screens */
+        font-size: 0.85rem;
+    }
+    .inventory-col.action-col {
+        flex-direction: column; /* Stack buttons */
+        gap: 5px;
+    }
+    .edit-product-button, .delete-product-button {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .detail-row .label {
+        width: auto;
+        margin-bottom: 5px;
+    }
+    .detail-capacity-bar-container {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+

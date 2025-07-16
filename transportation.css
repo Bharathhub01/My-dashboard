@@ -1,0 +1,536 @@
+/* General Layout and Typography */
+.transportation-tab {
+    padding: 20px;
+    background-color: #E0F2F7; /* Light grey background */
+    min-height: calc(100vh - 60px); /* Adjust based on your header/footer height */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #343a40; /* Dark grey text */
+}
+
+h2 {
+    color: #212529; /* Even darker grey for headings */
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.logistics-section-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header for sections */
+.logistics-section-header {
+    display: flex;
+    justify-content: flex-start; /* Align button to the left */
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.add-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.action-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.action-button.primary-action {
+    background-color: #28a745; /* Green for primary actions like Assign/Update */
+    color: white;
+}
+
+.action-button.primary-action:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.action-button.secondary-action {
+    background-color: #6c757d; /* Grey for secondary actions like Details */
+    color: white;
+}
+
+.action-button.secondary-action:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.action-button.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.action-button.disabled:hover {
+    background-color: #cccccc; /* No change on hover */
+    transform: none; /* No transform on hover */
+}
+
+
+.primary-button,
+.secondary-button { /* Reusing styles from Warehousing for consistency */
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.primary-button {
+    background-color: #28a745; /* Green */
+    color: white;
+    box-shadow: 0 2px 5px rgba(40, 167, 69, 0.2);
+}
+
+.primary-button:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.secondary-button {
+    background-color: #6c757d; /* Gray */
+    color: white;
+    box-shadow: 0 2px 5px rgba(108, 117, 125, 0.2);
+}
+
+.secondary-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+
+/* Vehicle Cards Grid */
+.vehicle-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.vehicle-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    color: #343a40;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Status specific colors */
+.status-available { background-color: #28a745; } /* Green */
+.status-en-route { background-color: #007bff; } /* Blue */
+.status-maintenance { background-color: #ffc107; color: #343a40; } /* Yellow/Orange with dark text */
+.status-off-duty { background-color: #6c757d; } /* Grey */
+
+.card-body p {
+    margin: 8px 0;
+    font-size: 0.95em;
+}
+
+.card-body p strong {
+    color: #555;
+}
+
+/* Fuel Gauge */
+.fuel-gauge {
+    background-color: #e9ecef;
+    border-radius: 4px;
+    height: 8px;
+    width: 100px; /* Fixed width for gauge */
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.fuel-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(to right, #dc3545 0%, #ffc107 50%, #28a745 100%);
+    transition: width 0.5s ease-in-out;
+}
+
+.vehicle-actions {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px;
+    margin-top: auto; /* Push actions to the bottom */
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.no-vehicles-message {
+    text-align: center;
+    grid-column: 1 / -1; /* Span across all columns in the grid */
+    padding: 50px;
+    font-size: 1.2em;
+    color: #6c757d;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Route Optimization & Map Section */
+.route-map-placeholder {
+    background-color: #eaf3f7; /* Light blue background */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.route-map-placeholder h2 {
+    color: #17a2b8; /* Cyan */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.route-map-placeholder p {
+    font-size: 1.1em;
+    color: #495057;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* --- Form Modal Styles (reused from Warehousing for consistency) --- */
+.form-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.form-modal-content {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    max-width: 600px; /* Slightly wider for more fields */
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.logistics-form .form-group {
+    margin-bottom: 18px;
+}
+
+.logistics-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.logistics-form input[type="text"],
+.logistics-form input[type="number"],
+.logistics-form input[type="date"],
+.logistics-form select {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logistics-form input[type="text"]:focus,
+.logistics-form input[type="number"]:focus,
+.logistics-form input[type="date"]:focus,
+.logistics-form select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.logistics-form .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.logistics-form .checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+/* --- Vehicle Detail Card Styles --- */
+.vehicle-detail-card-wrapper {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease, transform 0.2s ease;
+    font-weight: 500;
+}
+
+.back-button:hover {
+    color: #0056b3;
+    transform: translateX(-3px);
+}
+
+.vehicle-detail-card {
+    /* Specific styles for the content within the detail card */
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.detail-header h3 {
+    margin: 0;
+    font-size: 2em;
+    color: #343a40;
+    flex-grow: 1;
+}
+
+.detail-row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 12px;
+    font-size: 1.05em;
+}
+
+.detail-row .label {
+    font-weight: bold;
+    color: #555;
+    min-width: 150px; /* Aligns labels in details */
+    margin-right: 10px;
+}
+
+.detail-row .value {
+    color: #333;
+    flex-grow: 1;
+}
+
+.detail-fuel-gauge {
+    flex-grow: 1;
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.detail-fuel-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(to right, #dc3545 0%, #ffc107 50%, #28a745 100%);
+    transition: width 0.5s ease-in-out;
+}
+
+.vehicle-detail-card h4 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #343a40;
+    font-size: 1.4em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* --- New: Form Validation Error Message Style --- */
+.error-message {
+    color: #dc3545; /* Bootstrap 'danger' red */
+    font-size: 0.85em;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* --- New: Delete Button Style --- */
+.delete-button {
+    background-color: #dc3545; /* Red color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    margin-top: 15px; /* Spacing from other buttons */
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.assign-button {
+    background-color: purple; /* Red color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    margin-top: 15px; /* Spacing from other buttons */
+}
+
+.assign-button:hover {
+    background-color: darkorchid; /* Darker red on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .logistics-section-header {
+        justify-content: center;
+    }
+
+    .vehicle-list-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-actions {
+        justify-content: center;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .detail-row .label {
+        min-width: unset;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .add-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .vehicle-card, .vehicle-detail-card-wrapper {
+        padding: 15px;
+    }
+
+    .card-header h3, .detail-header h3 {
+        font-size: 1.2em;
+    }
+
+    .status-badge {
+        font-size: 0.75em;
+        padding: 4px 8px;
+    }
+}
+

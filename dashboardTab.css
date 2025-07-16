@@ -1,0 +1,451 @@
+/* DashboardTab.css */
+
+/* Base Styles & Container */
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f0f2f5; /* Lighter, clean background */
+    line-height: 1.6;
+}
+
+.dashboard-grid-container {
+    padding: 25px; /* Overall padding for the dashboard */
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef); /* Softer gradient background */
+    min-height: 100vh; /* Ensure it covers full viewport height */
+    display: flex;
+    justify-content: center; /* Center the dashboard content horizontally */
+    align-items: flex-start; /* Align content to the top */
+}
+
+.dashboard-grid {
+    display: grid; /* Use CSS Grid for the main layout to manage sections */
+    grid-template-columns: 1fr; /* Default to single column for all sections */
+    gap: 30px; /* Increased gap between major sections */
+    max-width: 1600px; /* Wider max width for more content */
+    width: 100%;
+}
+
+/* --- KPI Horizontal Row Styling --- */
+/* This section now uses its own flexbox for horizontal alignment */
+.dash-kpi-horizontal-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+    gap: 25px; /* Space between KPI cards */
+    justify-content: space-between; /* Distribute cards evenly in the row */
+    padding: 20px; /* Padding within the KPI row container */
+    background-color: #ffffff;
+    border-radius: 15px; /* More rounded corners for the whole row */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Stronger shadow for the main row */
+    border: 1px solid rgba(220, 220, 220, 0.5);
+    align-items: stretch; /* Make cards stretch to same height */
+}
+
+.dash-card {
+    flex: 1; /* Allow cards to grow and shrink */
+    min-width: 200px; /* Minimum width for each card before wrapping */
+    max-width: 280px; /* Optional: limit max width for very wide screens */
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0e0e0; /* Subtle border for individual cards */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Lighter shadow for individual cards */
+}
+
+.dash-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.dash-card h3 {
+    font-size: 1.25em;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.dash-card p {
+    font-size: 3.2em;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    display: block;
+    width: 100%;
+}
+
+/* Specific Card Colors (KPIs) */
+.dash-card.primary p { color: #007bff; }
+.dash-card.info p { color: #17a2b8; }
+.dash-card.success p { color: #28a745; }
+.dash-card.warning p { color: #ffc107; }
+
+
+/* --- Full-width Sections (Charts and Activities) --- */
+.dash-full-width {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(220, 220, 220, 0.5);
+}
+
+.dash-full-width h2 {
+    font-size: 2.4em;
+    color: #343a40;
+    margin-bottom: 35px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.dash-full-width h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 5px;
+    background-color: #007bff;
+    margin: 15px auto 0;
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+/* --- Reports Grid (for charts) --- */
+.chart-section {
+    padding-bottom: 20px;
+}
+
+.reports-grid {
+    display: grid;
+    /* Two large columns for charts, allowing them to fill space */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 25px; /* Space between chart cards */
+}
+
+.report-chart-card {
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.2s ease-in-out;
+    min-height: 400px; /* Minimum height for all chart cards to ensure consistency */
+}
+
+.report-chart-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.report-chart-card h3 {
+    font-size: 1.5em;
+    color: #495057;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.chart-container {
+    flex-grow: 1; /* Chart takes all available vertical space */
+    width: 100%; /* Chart takes all available horizontal space */
+    position: relative; /* Crucial for Chart.js to render correctly inside flex/grid items */
+    height: 100%; /* Important for Chart.js to scale responsively */
+    min-height: 250px; /* Ensure a minimum height for charts */
+    max-height: 400px; /* Max height to prevent charts from getting too tall */
+    display: flex; /* Helps ensure chart fills container */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Specific styling for outstanding retailers chart (spans full width) */
+.outstanding-retailers-chart {
+    grid-column: 1 / -1; /* Spans across all columns in the reports grid */
+    min-height: 450px; /* Taller for this specific bar chart */
+}
+
+/* --- Recent Activities --- */
+.activity-section {
+    padding-bottom: 20px;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: grid; /* Use grid for activities for better control */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columns or more */
+    gap: 15px; /* Smaller gap between activity items */
+}
+
+.activity-list li {
+    background-color: #fefefe;
+    border: 1px solid #e0e0e0;
+    border-left: 6px solid #007bff; /* Primary color accent border */
+    border-radius: 10px;
+    padding: 18px; /* Slightly reduced padding */
+    font-size: 0.95em; /* Slightly smaller font size */
+    color: #495057;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    flex: 1; /* Allow items to grow/shrink in a flex context if needed */
+}
+
+.activity-list li:hover {
+    transform: translateX(5px); /* Slightly less pronounced slide */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.activity-list li strong {
+    color: #343a40;
+}
+
+.activity-list li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1600px) { /* Adjust reports grid for larger screens */
+    .reports-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+@media (max-width: 1200px) {
+    .dashboard-grid-container {
+        padding: 20px;
+    }
+    .dash-kpi-horizontal-row {
+        justify-content: center; /* Center align cards if they wrap */
+        gap: 20px;
+        padding: 15px;
+    }
+    .dash-card {
+        min-width: 180px;
+        max-width: none; /* Remove max-width on smaller screens */
+        padding: 20px;
+    }
+
+    .reports-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjust min width for tablets */
+        gap: 20px;
+    }
+    .report-chart-card {
+        min-height: 380px;
+        padding: 20px;
+    }
+    .chart-container {
+        min-height: 220px;
+        max-height: 350px;
+    }
+    .outstanding-retailers-chart {
+        min-height: 400px;
+    }
+
+    .activity-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 12px;
+    }
+    .activity-list li {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboard-grid-container {
+        padding: 15px;
+    }
+    .dashboard-grid {
+        gap: 25px;
+    }
+
+    .dash-kpi-horizontal-row {
+        flex-direction: column; /* Stack KPI cards vertically on medium screens */
+        padding: 15px;
+        gap: 15px;
+    }
+    .dash-card {
+        width: 100%; /* Take full width when stacked */
+        max-width: none; /* Ensure no max-width interferes */
+        padding: 20px;
+    }
+    .dash-card h3 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+    .dash-card p {
+        font-size: 2.8em;
+    }
+
+    .dash-full-width {
+        padding: 25px;
+    }
+    .dash-full-width h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .dash-full-width h2::after {
+        width: 80px;
+        height: 4px;
+    }
+
+    .reports-grid {
+        grid-template-columns: 1fr; /* Stack all chart cards on smaller tablets/mobiles */
+        gap: 20px;
+    }
+    .report-chart-card {
+        min-height: 350px;
+        padding: 20px;
+    }
+    .chart-container {
+        min-height: 200px;
+        max-height: 300px;
+    }
+    .outstanding-retailers-chart {
+        min-height: 380px;
+    }
+
+    .activity-list {
+        grid-template-columns: 1fr; /* Stack activities vertically */
+        gap: 10px;
+    }
+    .activity-list li {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid-container {
+        padding: 10px;
+    }
+    .dashboard-grid {
+        gap: 20px;
+    }
+
+    .dash-kpi-horizontal-row {
+        padding: 10px;
+        gap: 10px;
+        border-radius: 10px;
+    }
+    .dash-card {
+        padding: 18px;
+        border-radius: 10px;
+    }
+    .dash-card h3 {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+    .dash-card p {
+        font-size: 2.2em;
+    }
+
+    .dash-full-width {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .dash-full-width h2 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+    .dash-full-width h2::after {
+        width: 70px;
+        height: 3px;
+    }
+
+    .report-chart-card {
+        min-height: 300px;
+        padding: 18px;
+        border-radius: 10px;
+    }
+    .report-chart-card h3 {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+    .chart-container {
+        min-height: 180px;
+        max-height: 250px;
+    }
+    .outstanding-retailers-chart {
+        min-height: 320px;
+    }
+
+    .activity-list li {
+        padding: 12px;
+        font-size: 0.85em;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-grid-container {
+        padding: 8px;
+    }
+    .dashboard-grid {
+        gap: 15px;
+    }
+
+    .dash-kpi-horizontal-row {
+        padding: 10px;
+        gap: 10px;
+    }
+    .dash-card {
+        padding: 15px;
+    }
+    .dash-card h3 {
+        font-size: 0.9em;
+        margin-bottom: 8px;
+    }
+    .dash-card p {
+        font-size: 2em;
+    }
+
+    .dash-full-width {
+        padding: 15px;
+    }
+    .dash-full-width h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    .dash-full-width h2::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    .reports-grid {
+        gap: 15px;
+    }
+    .report-chart-card {
+        min-height: 280px;
+        padding: 15px;
+    }
+    .report-chart-card h3 {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+    .chart-container {
+        min-height: 150px;
+        max-height: 200px;
+    }
+    .outstanding-retailers-chart {
+        min-height: 280px;
+    }
+
+    .activity-list {
+        gap: 8px;
+    }
+    .activity-list li {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+}

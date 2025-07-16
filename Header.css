@@ -1,0 +1,355 @@
+/* components/Header.css */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    background: linear-gradient(to right, #2c3e50, #34495e);
+    color: #ecf0f1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #2980b9;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 70px;
+}
+
+/* --- Left Section (Logo & Branding) --- */
+.header-left-global {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.app-branding {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.app-name {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #ecf0f1;
+}
+
+.app-tagline {
+    font-size: 0.8em;
+    color: #bdc3c7;
+    font-style: italic;
+}
+
+/* --- Trending Data Section --- */
+.trending-data-global {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    gap: 12px;
+    font-size: 0.9em;
+    color: #f0f2f5;
+    flex-wrap: wrap;
+    margin: 0 20px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.trending-icon {
+    color: #2ecc71;
+    min-width: 20px;
+}
+
+.trending-title {
+    font-weight: 600;
+    color: #a2d2ff;
+}
+
+.trending-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.trend-value {
+    font-weight: 700;
+    color: #ecf0f1;
+}
+
+.trend-indicator-up {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.trend-indicator-down {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+
+/* --- Right Section (Search, Icons, Profile) --- */
+.header-right-global {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Search Bar Styling */
+.search-global-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Removed specific positioning for search card as it's gone */
+}
+
+.search-global-wrapper input[type="text"] {
+    padding: 8px 15px 8px 35px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    color: #333333;
+    font-size: 0.9em;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+.search-global-wrapper input[type="text"]::placeholder {
+    color: #888888;
+}
+
+.search-global-wrapper input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+    width: 250px;
+}
+
+.search-icon-global {
+    position: absolute;
+    left: 12px;
+    color: #555555;
+    pointer-events: none; /* Icon is not clickable */
+    /* Removed .search-clear-icon styles */
+}
+
+/* --- REMOVED: Search Card Styling ---
+.search-card-global { ... }
+.search-card-section-title { ... }
+.search-card-global ul { ... }
+.search-card-global li { ... }
+.search-card-global a { ... }
+.search-card-global a:hover { ... }
+.search-card-footer { ... }
+.search-tip { ... }
+*/
+
+
+/* Global Icons (Bell) */
+.icon-global {
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-global:hover {
+    color: #3498db;
+    transform: scale(1.1);
+}
+
+/* Profile Menu */
+.profile-menu-container-global {
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar-global {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    object-fit: cover;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.avatar-global:hover {
+    border-color: #3498db;
+    transform: scale(1.05);
+}
+
+.profile-dropdown-global {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 180px;
+    z-index: 1001;
+    padding: 10px 0;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* User Name Display in Dropdown */
+.profile-username-global {
+    padding: 10px 15px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.profile-dropdown-global a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.profile-dropdown-global a:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+.profile-dropdown-global a svg {
+    color: #666666;
+    transition: color 0.2s ease;
+}
+
+.profile-dropdown-global a:hover svg {
+    color: #007bff;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        min-height: auto;
+    }
+
+    .trending-data-global {
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0;
+        order: 3;
+    }
+
+    .header-left-global,
+    .header-right-global {
+        width: auto;
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    .header-right-global {
+        justify-content: flex-end;
+    }
+
+    .search-global-wrapper input[type="text"] {
+        width: 150px;
+    }
+
+    .search-global-wrapper input[type="text"]:focus {
+        width: 180px;
+    }
+
+    /* Removed search-card-global from here */
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 8px 15px;
+        min-height: auto;
+    }
+
+    .logo {
+        height: 35px;
+    }
+
+    .app-name {
+        font-size: 1.2em;
+    }
+
+    .app-tagline {
+        font-size: 0.7em;
+    }
+
+    .trending-data-global {
+        font-size: 0.8em;
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .search-global-wrapper input[type="text"] {
+        width: 120px;
+        padding: 6px 12px 6px 30px;
+    }
+
+    .search-global-wrapper input[type="text"]:focus {
+        width: 150px;
+    }
+
+    .search-icon-global {
+        left: 8px;
+    }
+
+    /* Removed search-clear-icon from here */
+
+    /* Removed search-card-global from here */
+
+    .icon-global {
+        size: 18px;
+    }
+
+    .avatar-global {
+        width: 35px;
+        height: 35px;
+    }
+
+    .profile-dropdown-global {
+        top: 50px;
+        min-width: 160px;
+    }
+
+    .profile-username-global {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .profile-dropdown-global a {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+}

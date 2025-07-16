@@ -1,0 +1,204 @@
+/* ReportsAndAnalytics.css */
+
+.reports-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.reports-container h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.report-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.report-section h3 {
+    color: #34495e;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.kpi-card {
+    background-color: #e8f5e9; /* Light green */
+    border-left: 5px solid #4caf50; /* Green */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.kpi-card h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.kpi-card p {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #2e7d32; /* Darker green */
+}
+
+/* Charts Styling (Manual Bars and Pie) */
+.chart-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+}
+
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.bar-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.bar-label {
+    width: 120px; /* Fixed width for labels */
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.bar {
+    height: 25px;
+    background-color: #2196f3; /* Blue */
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    padding-right: 5px;
+    box-sizing: border-box;
+    transition: width 0.5s ease-in-out;
+}
+
+.bar-value {
+    margin-left: 5px;
+    font-weight: bold;
+    color: #333; /* For outside value */
+}
+
+/* Specific bar colors */
+.bar-status-open { background-color: #f44336; } /* Red */
+.bar-status-in-progress { background-color: #ff9800; } /* Orange */
+.bar-status-resolved { background-color: #4caf50; } /* Green */
+.bar-status-closed { background-color: #9e9e9e; } /* Grey */
+.bar-status-on-hold { background-color: #607d8b; } /* Blue Grey */
+
+.bar-priority-high { background-color: #d32f2f; } /* Dark Red */
+.bar-priority-medium { background-color: #fbc02d; } /* Dark Orange */
+.bar-priority-low { background-color: #388e3c; } /* Dark Green */
+
+
+/* Simple Pie Chart (using conic-gradient for visual effect) */
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.pie-chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #4CAF50 0% 25%, /* Green */
+        #2196F3 25% 50%, /* Blue */
+        #FFC107 50% 75%, /* Amber */
+        #E91E63 75% 100% /* Pink */
+    );
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.pie-chart-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.pie-chart-legend li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.pie-chart-legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+/* Specific legend colors (match conic-gradient) */
+.pie-chart-legend-color.green { background-color: #4CAF50; }
+.pie-chart-legend-color.blue { background-color: #2196F3; }
+.pie-chart-legend-color.amber { background-color: #FFC107; }
+.pie-chart-legend-color.pink { background-color: #E91E63; }
+.pie-chart-legend-color.orange { background-color: #ff9800; }
+.pie-chart-legend-color.purple { background-color: #9c27b0; }
+.pie-chart-legend-color.teal { background-color: #009688; }
+.pie-chart-legend-color.indigo { background-color: #3f51b5; }
+
+
+/* Lists in reports */
+.report-list {
+    list-style: none;
+    padding: 0;
+}
+
+.report-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.95em;
+    color: #444;
+}
+
+.report-list li:last-child {
+    border-bottom: none;
+}
+
+/* No data message */
+.no-data-message {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+    font-style: italic;
+}

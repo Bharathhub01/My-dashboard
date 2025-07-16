@@ -1,0 +1,37 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #1A1A2E;
+  --bg-light: #F5F5F5;
+  --sidebar-bg: #1A1A2E;
+  --card-bg-dark: #2C2C4A;
+  --card-bg-light: #FFFFFF;
+  --text-primary: #E0E0E0;
+  --text-secondary: #A0A0A0;
+  --accent-purple: #8A2BE2; /* Bluish purple for charts/accents */
+  --accent-orange: #FF5733;
+  --accent-green: #2ECC71;
+  --accent-blue: #3498DB;
+  --box-shadow-dark: rgba(0, 0, 0, 0.2);
+  --box-shadow-light: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-light); /* Main page background */
+  color: #333; /* Default text color */
+}
+
+/* Basic resets */
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}

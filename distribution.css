@@ -1,0 +1,435 @@
+/* Styles/distribution.css */
+
+/* --- Base Colors (Monochrome Theme) --- */
+:root {
+    --color-background: #f9f9f9; /* Very light gray */
+    --color-primary-text: #2c2c2c; /* Dark charcoal for main text */
+    --color-secondary-text: #666666; /* Medium gray for labels/secondary info */
+    --color-border: #e0e0e0; /* Light gray for borders */
+    --color-card-background: #ffffff; /* Pure white for sections/cards */
+    --color-button-bg: #4a4a4a; /* Dark gray for primary buttons */
+    --color-button-hover: #000000; /* Black on hover */
+    --color-status-pending: #888888; /* Gray for pending */
+    --color-status-dispatched: #007bff; /* A subtle blue for dispatched */
+    --color-status-delivered: #5cb85c; /* A subtle green for delivered */
+    --color-accent-line: #bbbbbb; /* A slightly darker gray for lines/dividers */
+    --color-table-header-bg: #f5f5f5; /* Light gray for table headers */
+    --color-table-row-hover: #f0f0f0; /* Even lighter gray for row hover */
+    --color-delivered-row: #eafaea; /* Very light green for delivered rows, subtle */
+}
+
+/* --- General Tab and Heading Styles --- */
+.distribution-tab {
+    padding: 25px;
+    background-color: var(--color-background);
+    min-height: calc(100vh - 60px); /* Adjust based on header height */
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; /* Clean, modern font */
+    color: var(--color-primary-text);
+}
+
+.distribution-tab h2 {
+    font-size: 2.4em;
+    color: var(--color-primary-text);
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.distribution-tab h2::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 4px;
+    background-color: var(--color-accent-line); /* Gray underline */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Distribution Controls (Buttons & Filters) --- */
+.distribution-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    background-color: var(--color-card-background);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.filter-group {
+    display: flex;
+    gap: 15px;
+}
+
+.search-input,
+.status-filter-select {
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.95em;
+    color: var(--color-primary-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus,
+.status-filter-select:focus {
+    border-color: var(--color-button-bg);
+    box-shadow: 0 0 0 3px rgba(rgba(74, 74, 74, 0.2));
+    outline: none;
+}
+
+/* --- Add Button Styling (consistent with transportation tab) --- */
+.add-button {
+    background-color: var(--color-button-bg);
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.add-button:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-1px);
+}
+
+/* --- Table Wrapper & Basic Table Styling --- */
+.orders-table-wrapper {
+    background-color: var(--color-card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow-x: auto; /* For responsive tables */
+    border: 1px solid var(--color-border);
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+    color: var(--color-primary-text);
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 15px 20px; /* Generous padding for readability */
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.orders-table th {
+    background-color: var(--color-table-header-bg);
+    font-weight: 600;
+    color: var(--color-primary-text);
+    position: sticky; /* Sticky header */
+    top: 0;
+    z-index: 10;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.orders-table tbody tr:hover {
+    background-color: var(--color-table-row-hover);
+}
+
+/* Delivered Row Styling */
+.orders-table tbody tr.status-delivered {
+    background-color: var(--color-delivered-row);
+    color: var(--color-secondary-text); /* Slightly muted text for delivered */
+}
+
+/* --- Status Badge Styling (Consistent with transportation) --- */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff; /* White text for all statuses */
+    display: inline-block;
+    letter-spacing: 0.5px;
+    min-width: 80px; /* Ensure consistent width */
+    text-align: center;
+}
+
+/* Status-specific backgrounds (using subtle colors) */
+.status-pending { background-color: var(--color-status-pending); }
+.status-dispatched { background-color: var(--color-status-dispatched); }
+.status-delivered { background-color: var(--color-status-delivered); }
+
+
+/* --- Action Buttons in Table --- */
+.action-buttons {
+    display: flex;
+    gap: 8px; /* Space between buttons */
+    flex-wrap: wrap; /* Wrap buttons if space is tight */
+}
+
+.small-button {
+    padding: 8px 14px;
+    border: 1px solid var(--color-secondary-text);
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.small-button.primary-button {
+    background-color: var(--color-button-bg);
+    color: #fff;
+    border-color: var(--color-button-bg);
+}
+
+.small-button.primary-button:hover {
+    background-color: var(--color-button-hover);
+    border-color: var(--color-button-hover);
+    transform: translateY(-1px);
+}
+
+.small-button.secondary-button {
+    background-color: #ffffff;
+    color: var(--color-secondary-text);
+    border-color: var(--color-border);
+}
+
+.small-button.secondary-button:hover {
+    background-color: var(--color-border);
+    transform: translateY(-1px);
+}
+
+/* --- Form Modal Overlay (consistent with transportation) --- */
+.form-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.form-modal-content {
+    background-color: var(--color-card-background);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 550px; /* Slightly wider for forms */
+    animation: fadeInScale 0.3s ease-out forwards;
+}
+
+.form-modal-content h3 {
+    font-size: 2em;
+    color: var(--color-primary-text);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* --- Form Styling (consistent with transportation) --- */
+.distribution-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Slightly larger gap for form clarity */
+}
+
+.form-group label {
+    font-size: 0.95em;
+    color: var(--color-secondary-text);
+    margin-bottom: 5px;
+    font-weight: 500;
+    display: block; /* Ensure label is on its own line */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--color-primary-text);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-button-bg);
+    box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.2);
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* --- Order Details Modal Specifics --- */
+.order-details-modal-content {
+    max-width: 600px;
+    padding: 30px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 25px; /* Row gap, column gap */
+    margin-bottom: 25px;
+}
+
+.details-grid p {
+    margin: 0;
+    font-size: 0.95em;
+    color: var(--color-primary-text);
+}
+
+.details-grid p strong {
+    color: var(--color-secondary-text);
+    font-weight: 600;
+    display: block; /* Ensure label is above value in grid for clarity */
+    margin-bottom: 3px;
+}
+
+.details-grid .full-width {
+    grid-column: 1 / -1; /* Span across both columns */
+}
+
+/* --- No Orders Message --- */
+.no-orders-message {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-secondary-text);
+    font-style: italic;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border: 1px dashed var(--color-border);
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+/* --- Animations --- */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1200px) {
+    .distribution-tab { padding: 20px; }
+    .distribution-tab h2 { font-size: 2.2em; margin-bottom: 35px; }
+    .distribution-controls { flex-direction: column; align-items: flex-start; gap: 20px; padding: 15px; }
+    .filter-group { width: 100%; justify-content: space-between; }
+    .search-input, .status-filter-select { flex-grow: 1; }
+    .orders-table th, .orders-table td { padding: 12px 15px; }
+    .form-modal-content { padding: 30px; max-width: 500px; }
+    .form-modal-content h3 { font-size: 1.8em; margin-bottom: 20px; }
+    .distribution-form { gap: 15px; }
+    .details-grid { gap: 12px 20px; }
+}
+
+@media (max-width: 768px) {
+    .distribution-tab { padding: 15px; }
+    .distribution-tab h2 { font-size: 2em; margin-bottom: 30px; }
+    .distribution-controls { gap: 15px; }
+    .filter-group { flex-direction: column; gap: 10px; }
+    .add-button { width: 100%; text-align: center; }
+    .orders-table { font-size: 0.9em; }
+    .orders-table th, .orders-table td { padding: 10px 12px; }
+    .status-badge { font-size: 0.75em; padding: 5px 10px; min-width: 70px; }
+    .action-buttons { flex-direction: column; gap: 5px; }
+    .small-button { width: 100%; padding: 7px 12px; font-size: 0.75em; }
+    .form-modal-content { padding: 25px; max-width: 95%; }
+    .form-modal-content h3 { font-size: 1.6em; margin-bottom: 18px; }
+    .distribution-form { gap: 12px; }
+    .form-group label { font-size: 0.9em; }
+    .form-group input, .form-group select, .form-group textarea { padding: 9px 10px; font-size: 0.85em; }
+    .form-actions { flex-direction: column; align-items: stretch; gap: 10px; margin-top: 20px; }
+    .primary-button, .secondary-button { width: 100%; }
+    .details-grid { grid-template-columns: 1fr; gap: 10px; } /* Stack details on small screens */
+    .details-grid p strong { display: inline; margin-right: 5px; } /* Adjust label presentation */
+}
+
+@media (max-width: 480px) {
+    .orders-table { font-size: 0.85em; }
+    .orders-table th, .orders-table td { padding: 8px; }
+    .status-badge { font-size: 0.7em; min-width: 60px; }
+    .search-input, .status-filter-select { font-size: 0.85em; }
+}
+
+.danger-button {
+    background-color: #dc3545; /* A standard red color */
+    color: white;
+    border: 1px solid #dc3545;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    margin-left: 10px; /* Add some spacing if needed */
+}
+
+.danger-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+    border-color: #bd2130;
+}
+
+.danger-button:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+/* Ensure form actions display buttons correctly */
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px;
+    border-top: 1px solid #eee; /* Separator for actions */
+    padding-top: 15px;
+}
+
+.Close-button {
+    background-color: purple; /* A standard red color */
+    color: white;
+    border: 1px solid purple;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    margin-left: 10px; /* Add some spacing if needed */
+}
+
+.close-button:hover {
+    background-color: darkorchid;
+}
+

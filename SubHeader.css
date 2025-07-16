@@ -1,0 +1,177 @@
+/* components/SubHeader.css */
+
+.sub-header-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 40px;
+    background: linear-gradient(145deg, #007BFF, #0056b3); /* Main sub-header background (blue gradient) */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    gap: 25px;
+    position: relative;
+    border-bottom: 3px solid #f39c12;
+    margin-bottom: 0; /* NEW: Removes any bottom margin from the subheader */
+}
+
+/* Hide scrollbar for a cleaner look */
+.sub-header-nav::-webkit-scrollbar {
+    display: none;
+}
+.sub-header-nav {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sub-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    flex-shrink: 0;
+    gap: 0px;
+    background: linear-gradient(145deg, #f0f2f5, #e0e4e8);
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    justify-content: center;
+}
+
+/* Default icon style */
+.sub-nav-link svg {
+    stroke-width: 2.5;
+    min-width: 24px;
+    transition: color 0.3s ease;
+}
+
+/* --- Icon Specific Colors --- */
+.sub-nav-link:nth-child(1) svg { color: #4CAF50; }
+.sub-nav-link:nth-child(2) svg { color: #FFC107; }
+.sub-nav-link:nth-child(3) svg { color: #2196F3; }
+.sub-nav-link:nth-child(4) svg { color: #8BC34A; }
+.sub-nav-link:nth-child(5) svg { color: #9C27B0; }
+.sub-nav-link:nth-child(6) svg { color: #FF5722; }
+.sub-nav-link:nth-child(7) svg { color: #00BCD4; }
+.sub-nav-link:nth-child(8) svg { color: #E91E63; }
+.sub-nav-link:nth-child(9) svg { color: #607D8B; }
+/* --- End Icon Specific Colors --- */
+
+.sub-nav-link .link-text {
+    opacity: 0;
+    max-width: 0;
+    transition: opacity 0.3s ease, max-width 0.3s ease, margin-left 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0.9em;
+    color: #ffffff;
+}
+
+.sub-nav-link:hover {
+    background: linear-gradient(145deg, #3498db, #2980b9);
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
+    border-color: #3498db;
+    cursor: pointer;
+    padding: 10px 22px;
+    justify-content: flex-start;
+}
+.sub-nav-link:hover svg {
+    color: #ffffff !important;
+}
+
+.sub-nav-link:hover .link-text {
+    opacity: 1;
+    max-width: 200px;
+    margin-left: 10px;
+}
+
+/* Active state */
+.active-sub-nav-link {
+    background: linear-gradient(145deg, #f39c12, #e67e22);
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.6);
+    border-color: #f39c12;
+    transform: translateY(-2px);
+    padding: 10px 22px;
+    justify-content: flex-start;
+}
+.active-sub-nav-link svg {
+    color: #ffffff !important;
+}
+
+.active-sub-nav-link .link-text {
+    opacity: 1;
+    max-width: 200px;
+    margin-left: 10px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .sub-header-nav {
+        padding: 15px 30px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sub-header-nav {
+        padding: 12px 20px;
+        gap: 15px;
+        justify-content: flex-start;
+    }
+
+    .sub-nav-link {
+        padding: 8px 12px;
+        border-radius: 20px;
+    }
+    .sub-nav-link svg {
+        min-width: 22px;
+        size: 22px;
+    }
+
+    .sub-nav-link:hover {
+        padding: 8px 18px;
+    }
+
+    .sub-nav-link:hover .link-text,
+    .active-sub-nav-link .link-text {
+        margin-left: 8px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .sub-header-nav {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .sub-nav-link {
+        padding: 7px 10px;
+        border-radius: 18px;
+    }
+    .sub-nav-link svg {
+        min-width: 20px;
+        size: 20px;
+    }
+
+    .sub-nav-link:hover {
+        padding: 7px 16px;
+    }
+
+    .sub-nav-link:hover .link-text,
+    .active-sub-nav-link .link-text {
+        margin-left: 6px;
+        font-size: 0.8em;
+    }
+}

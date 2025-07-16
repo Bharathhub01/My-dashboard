@@ -1,0 +1,268 @@
+/* src/App.css */
+
+/* Updated color variables for a dairy theme */
+:root {
+  --bg-dark: #2F4F4F; /* Darker green/teal for depth */
+  --bg-light: #F8FCF8; /* Very light green/white for fresh feel */
+  --sidebar-bg: #2F4F4F; /* Darker green/teal */
+  --card-bg-dark: #3F5F5F; /* Slightly lighter dark card */
+  --card-bg-light: #FFFFFF;
+  --text-primary: #333; /* Adjusted for better readability on light background */
+  --text-secondary: #606060; /* Adjusted for better readability */
+  --accent-green-primary: #2ECC71; /* Main green for positive metrics/charts */
+  --accent-blue-milk: #3498DB; /* Blue for milk related items */
+  --accent-yellow-light: #FFD700; /* For highlighting */
+  --box-shadow-dark: rgba(0, 0, 0, 0.2);
+  --box-shadow-light: rgba(0, 0, 0, 0.08);
+
+  /* New variables for layout (CRITICAL for alignment) */
+  --header-height: 70px;
+  --subheader-height: 70px;
+
+  /* Overall page padding/margins that apply to the content area */
+  --page-horizontal-padding: 3rem; /* Padding for the main content area from the sides of the viewport */
+  --page-vertical-padding: 2.5rem; /* Padding for the main content area from top/bottom */
+
+  /* Internal padding for components like header/subheader content */
+  --component-horizontal-padding: 24px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-light); /* Main page background */
+  color: var(--text-primary); /* Default text color */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  display: flex; /* Make body a flex container */
+  flex-direction: column;
+}
+
+/* Basic resets */
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Core App Layout Structure --- */
+.app-container {
+  display: flex;
+  flex-direction: column; /* Stack header, subheader, main content vertically */
+  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+  width: 100%; /* Make it take full width */
+  overflow-x: hidden; /* Prevent horizontal scroll from app level */
+  /* No explicit margin/padding here. Children will manage their spacing. */
+}
+
+/* This is the main area where your dashboard content goes. */
+/* It will be responsible for scrolling if content overflows vertically. */
+.app-main-content {
+  flex-grow: 1; /* Allows this area to take up all available vertical space */
+  /* Apply overall page padding here */
+  padding: var(--page-vertical-padding) var(--page-horizontal-padding);
+  background-color: var(--bg-light);
+  overflow-y: auto; /* Enable vertical scrolling for this area */
+  width: 100%; /* Ensure it takes full width of its parent */
+  /* Add margin-top to separate from sticky sub-header if necessary,
+     or let sub-header flow directly into it if it's not sticky.
+     Given previous request, it seems both header and subheader are fixed/sticky. */
+}
+
+/* Placeholder for any pages not yet implemented (Profile, Settings, 404) */
+.page-placeholder {
+    padding: 40px;
+    background-color: var(--card-bg-light);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-light);
+    text-align: center;
+    max-width: calc(100% - (2 * var(--page-horizontal-padding))); /* Adjust max-width based on page padding */
+    width: 100%;
+    margin: 20px auto;
+}
+
+.page-placeholder h2 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.page-placeholder p {
+    color: var(--text-secondary);
+    font-size: 1.1em;
+}
+
+/* --- General Card Base Styles (These are currently inside your App.css, good for global cards) --- */
+.card {
+  background-color: var(--card-bg-light);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--box-shadow-light);
+  padding: 1.8rem;
+}
+
+/* Remaining card, grid, and other section styles (like .kpi-cards-grid, .kpi-card, .main-charts-section etc.)
+   should preferably be in Dashboard.css if they are dashboard-specific.
+   If you move them, remove them from App.css.
+   For now, keeping them here as they were in your provided App.css for completeness. */
+.kpi-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.kpi-card {
+    background-color: var(--card-bg-light);
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    border-left: 5px solid #00796b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.kpi-card h3 {
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.kpi-card .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-charts-section {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .main-charts-section {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
+    }
+}
+
+.chart-card {
+    background-color: var(--card-bg-light);
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.chart-placeholder {
+    background-color: #f0f0f0; /* Light gray for placeholders */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    flex-grow: 1; /* Allow it to fill available space */
+}
+
+.alerts-section {
+    padding: 20px;
+    /* Already inheriting chart-card style */
+}
+
+.alerts-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.alert-item {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+    color: var(--text-primary);
+    border-left: 4px solid; /* Defined by severity */
+}
+
+.alert-item .alert-type {
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.alert-item .alert-severity {
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.alert-high { border-color: #e74c3c; }
+.alert-high .alert-severity { background-color: #e74c3c; color: white; }
+
+.alert-medium { border-color: #f39c12; }
+.alert-medium .alert-severity { background-color: #f39c12; color: white; }
+
+.alert-low { border-color: #2ecc71; }
+.alert-low .alert-severity { background-color: #2ecc71; color: white; }
+
+.no-alerts {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  :root {
+    --page-horizontal-padding: 2rem;
+    --page-vertical-padding: 2rem;
+    --component-horizontal-padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-horizontal-padding: 1.5rem;
+    --page-vertical-padding: 1.5rem;
+    --component-horizontal-padding: 15px;
+    --header-height: 60px;
+    --subheader-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-horizontal-padding: 1rem;
+    --page-vertical-padding: 1rem;
+    --component-horizontal-padding: 10px;
+  }
+}
